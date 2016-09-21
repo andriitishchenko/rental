@@ -29,6 +29,9 @@
 /* Animate view transitions with `ngView` */
 .view-container {
   position: relative;
+  padding: 20px; 
+  overflow-y:scroll;
+  height: 520px;
 }
 
 .view-frame {
