@@ -1,0 +1,11 @@
+      <div class="items list">
+        <div ng-repeat="item in vm.items" class="thumbnail list-item">
+          <a href="#/list/{{item.id}}" class="thumb">
+            <img ng-src="img/{{item.id}}.png" alt="{{item.title}}" check-image />
+          </a>
+          <a href="#/list/{{item.id}}">{{item.title}}</a>
+           <div class="price"><span>{{item.price}} {{item.timeframe}} </span></div>
+          <p class="description">{{item.description}}</p>
+        </div>
+      </div>
+
