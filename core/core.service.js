@@ -132,6 +132,7 @@ var getBookingByID = function(itemId){
          })
         .success(function(data){
           var list = [];
+          if (data.rows) {
           data.rows.forEach(function(arr) {
             var item = {
               id:arr[0],
@@ -145,6 +146,7 @@ var getBookingByID = function(itemId){
             };
             list.push(item);
           });
+          }
           deferred.resolve(list);
         })
         .error(function(err){

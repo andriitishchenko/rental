@@ -27,4 +27,14 @@ angular.module('App', [
          });
        }
    }
-});
+})
+.directive('backButton', ['$window', function($window) {
+        return {
+            //restrict: 'E',
+            link: function (scope, elem, attrs) {
+                elem.bind('click', function () {
+                    $window.history.back();
+                });
+            }
+        };
+    }]);
