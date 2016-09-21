@@ -4,21 +4,18 @@
   <img ng-src="img/{{$ctrl.item.id}}.png" alt="{{$ctrl.item.title}}" check-image />
 </div>
 <div class="details-description">
-<h1>{{$ctrl.item.title}} <span>({{$ctrl.item.price}} {{$ctrl.item.timeframe}})</span></h1>
+<h1>{{$ctrl.item.title}}</h1>
+<p>{{$ctrl.item.price}} {{$ctrl.item.timeframe}}</p>
 <p class="description">{{$ctrl.item.description}}</p>
-<div class="calendar">Calendar
-        <div ng-repeat="item in $ctrl.booking">
+<div class="calendar">
+<calendar selected="day" id="calendar" ></calendar>
+		<div ng-repeat="item in $ctrl.booking">
           <p>{{item.dateFrom}} - {{item.dateTo}}</p>
         </div>
 </div>
-<p>
-<span>From:</span><span>10/10/10</span>&nbsp&nbsp&nbsp&nbsp
-<span>To:</span><span>10/10/10</span>
-</p>
-<p>
-<input type="submit" name="Order" title="Order">
-
-</p>
+<div>
+Звоните
+</div>
 </div>
 </div>
 

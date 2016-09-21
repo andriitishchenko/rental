@@ -32,9 +32,10 @@ div{
 .details-preview-image{
     margin: 0;
 	min-width: 150px;
+    min-height: 400px;
     /*max-width: 400px;*/
     width: 49%;
-    position: relative;
+    
     overflow: hidden;
     display: inline-block;
     text-align: right;
@@ -42,18 +43,24 @@ div{
 }
 
 .details-preview-image > img {
-    width: 100%;
-    max-width: 400px;
+    /*width: 100%;*/
+    /*max-width: 400px;*/
     /*height: 533px;*/
+    /*display: block;*/
     margin-right: 30px;
+    max-height: 450px;
+    max-width: 338px;
+    width: 100% !important;
+    height: auto;
     
 }
 
 .details-description{
     margin: 0px;
 	min-width: 250px;
+    min-height: 400px;
     width: 50%;
-    position: relative;
+    
     overflow: hidden;
     display: inline-block;
     /*border: solid 1px red;*/
@@ -61,6 +68,9 @@ div{
 .calendar{
 	
     height: 200px;
+    float: none;
+    clear: both;
+    display: block;
 }
 .items.list 
 {
@@ -83,7 +93,7 @@ div{
 h1 > span{
 font-family:Georgia,serif;
 color:#666666;
-font-size:30px;
+font-size:20px;
 line-height:1em;
 margin:0px;
 }
