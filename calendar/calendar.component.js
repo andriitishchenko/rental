@@ -1,23 +1,24 @@
 'use strict';
-angular.module('itemDetail').controller("calendarDemo", function($scope) {
-    $scope.day = moment();
-    $scope.events = [1,2,3,54,5,6,5];
+// angular.module('itemDetail').controller("calendarDemo", function($scope) {
+//     $scope.day = moment();
+//     $scope.events = [1,2,3,54,5,6,5];
 
-});
+// });
 
 angular.module('App').directive("calendar", function() {
     return {
         restrict: "E",
         templateUrl: "calendar/calendar.template.html",
         scope: {
-            selected: "="
-            // events:[]
-
+            selected: "=",
+            booking: "="
         },
-        link: function(scope) {
+        link: function(scope, element, attributes) {
+            
+            console.log(scope.selected, scope.booking)
+
             scope.selected = _removeTime(scope.selected || moment());
             scope.month = scope.selected.clone();
-            scope.events = [];
 
             var start = scope.selected.clone();
             start.date(1);
@@ -44,10 +45,24 @@ angular.module('App').directive("calendar", function() {
             };
 
             scope.checkevents = function(day) {
-                
-                //console.log(scope.events);
-                //return true;
+                if (!scope.booking) { 
+                    return false;
+                }
+                var tm = day.unix();
+                var obj = scope.booking.filter(function (el) {
+                    var a = moment(el.dateFrom, "DD/MM/YYYY").unix();
+                    var b = moment(el.dateTo, "DD/MM/YYYY").unix();
+                    return (a<=tm && tm<=b)?true:false;
+                });
+                if (obj.length > 0) {return true;}
+                return false;
             };
+
+            // scope.$watch("booking", function(value){
+            //         console.log(value);
+            //     if(value){
+            //     }
+            // });
         }
     };
     

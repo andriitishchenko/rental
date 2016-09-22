@@ -5,17 +5,18 @@ angular.
   module('itemDetail').
   component('itemDetail', {
     templateUrl: 'item-detail/item-detail.template.html',
-    controller: ['$routeParams', 'APIService',
-      function ItemDetailController($routeParams, APIService) {
+    controller: ['$scope', '$routeParams', 'APIService',
+      function ItemDetailController($scope, $routeParams, APIService) {
         this.item = null;
         this.booking = null;
+        
         var self = this;
         var _item = APIService.getItemByID($routeParams.itemId);
         _item.then(function(value) {
           self.item = value;
         }).then(function() {
             APIService.getBookingByID($routeParams.itemId).then(function(value) {
-              self.booking = value;
+                self.booking = value;
             });
         });
 

@@ -8,12 +8,9 @@
 <p>{{$ctrl.item.price}} {{$ctrl.item.timeframe}}</p>
 <p class="description">{{$ctrl.item.description}}</p>
 <div class="calendar">
-<calendar selected="day" id="calendar" ></calendar>
-		<div ng-repeat="item in $ctrl.booking">
-          <p>{{item.dateFrom}} - {{item.dateTo}}</p>
-        </div>
+	<calendar selected="day" id="calendar" booking="$ctrl.booking" ></calendar>
 </div>
-<div>
+<div class="clear">
 Звоните
 </div>
 </div>
